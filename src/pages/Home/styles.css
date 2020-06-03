@@ -1,0 +1,31 @@
+form {
+    display: flex;
+    font-size: large;
+    justify-content: center;
+    text-align: center;
+}
+
+form input {
+    width: 250px;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+}
+
+.unidade-conteiner {
+    list-style-type: none;
+    display: flex;
+    
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: #ddd;
+    
+}
+
+.unidade-conteiner li{
+    margin: auto;
+}
