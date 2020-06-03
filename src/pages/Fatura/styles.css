@@ -1,0 +1,62 @@
+.conteiner {
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+}
+
+.back {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.fatura-detail-conteiner {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.nome-tag {
+    grid-area: nt;
+}
+
+.nome-value {
+    grid-area: nv;
+}
+
+.endereco-tag {
+    grid-area: et;
+}
+
+.endereco-value {
+    grid-area: ev;
+}
+
+.fatura-header {
+    display: grid;
+    grid-template-areas:
+        'nt nt nv nv'
+        'et et ev ev'
+        '. . . .'
+        '. . . .';
+    grid-gap: 10px;
+}
+
+.fatura-dados {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.fatura-total {
+    margin: 10px;
+    font-size: large;
+    display: flex;
+    text-align: justify;
+    justify-content: space-evenly;
+}
+
+.fatura-codigo-barras {
+    font-size: large;
+    text-align: center;
+    margin: 10px;
+}

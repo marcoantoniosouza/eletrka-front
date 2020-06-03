@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
-import Header from '../../Header';
+import Header from '../Header';
 import api from '../../services/api';
 
-export default function Unidades() {
+import './styles.css'
+
+export default function Faturas() {
 
     const [faturas, setFaturas] = useState([]);
     const params = useParams();
@@ -14,17 +16,16 @@ export default function Unidades() {
         api.get(`faturas/${uc}`).then(response => {setFaturas(response.data)});
     }, [uc]);
 
-    //console.log(params['uc']);
-
     return(
         <div>
             <Header />
                     
-            <div className="faturas-conteiner">
-                <div className="fatura-conteiner">
-                    <ul>
-                        {faturas.map(fatura => {
-                            return(
+            <ul className="faturas-conteiner">
+                {faturas.map(fatura => {
+                    const status = fatura.status === 'Pago' ? "fatura-conteiner alert alert-success" : " fatura-conteiner alert alert-warning"
+                    return(
+                        <div className={status}>
+                            <Link to={`${fatura.uc}/${fatura.ano}/${fatura.mes}`} >
                                 <li key={fatura.mes_ano}>
                                     <strong>Mês Referencia</strong>
                                     <p>{fatura.mes}/{fatura.ano}</p>
@@ -34,12 +35,13 @@ export default function Unidades() {
                                     <p>{fatura.valor}</p>
                                     <strong>Status</strong>
                                     <p>{fatura.status}</p>
-                            </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-            </div>
+                                </li>
+                            </Link>
+                        </div>
+                    );
+                })}
+            </ul>
         </div>
+            
     );
 }
